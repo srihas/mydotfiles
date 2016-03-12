@@ -1,0 +1,5 @@
+#!/bin/sh
+# Show the log at the head of branch for all branchs
+for branch in $(git for-each-ref --format='%(refname)' refs/heads/); do
+      git log --oneline --decorate "$branch" ^origin/master -1| cat
+done

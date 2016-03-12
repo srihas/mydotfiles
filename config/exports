@@ -1,0 +1,25 @@
+# http://unix.stackexchange.com/questions/2897/clicolor-and-ls-colors-in-bash
+export CLICOLOR=1
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+
+# change this to vim or emacs, if you don't want to use nano
+export EDITOR="vim"
+
+# Add brew path for coreutils
+[ -x "$(command -v brew)" ] && [ -d "`brew --prefix`/opt/coreutils/libexec/gnubin" ] && export PATH="`brew --prefix`/opt/coreutils/libexec/gnubin:$PATH"
+
+if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]
+then
+    export WORKON_HOME=~/.venvs
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+    source $(brew --prefix)/share/bash-completion/bash_completion
+fi
+
+if [[ -d ${HOME}/source/rust ]]
+then
+    export RUST_SRC_PATH=${HOME}/source/rust/src
+fi
+
